@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+    color: white;
+}
+.container {
+    min-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    display:grid;
+    grid-template-areas: "header"
+                        "nav"
+                        "hero"
+                        "main"
+                        "banner"
+                        "extra"
+                        "image"
+                        ;
+    grid-template-rows: repeat(2, 75px) repeat(2, 200px) repeat(3, 150px);
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 30px;
+    }
+    .container {
+        display: grid;
+        min-width: 768px;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-areas: "header header header header"
+                            "hero hero hero hero"
+                            "nav main main main"
+                            "nav banner banner banner"
+                            "nav extra extra image";
+        grid-template-columns: repeat( 4, 1fr);
+        grid-template-rows: 1fr repeat(2, 4fr) repeat(2 , 2fr);
+        min-height: 100vh;
+    }
+    .none {
+        display: none;
+    }
+}
+@media screen and (min-width:1024px) {
+    body {
+        font-size: 25px;
+    }
+    .container {
+        display: grid;
+        min-width: 1024px;
+        margin: 0 auto;
+        width: 100;
+        grid-template-areas: "header nav nav nav"
+                            "hero hero hero hero"
+                            "main main none image"
+                            "main main none extra"
+                            "banner banner banner banner";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 6fr repeat(3, 2fr);
+    }
+    
+}
+.header {
+    grid-area: header;
+    background-color: black;
+}
+.nav {
+    grid-area: nav;
+    background-color: red;
+}
+.hero {
+    grid-area: hero;
+    background-color: blue;
+}
+.main {
+    grid-area: main;
+    background-color: darkblue;
+}
+.banner {
+    grid-area: banner;
+    background-color: rgb(255, 209, 105);
+    color: black;
+}
+.extra {
+    grid-area: extra;
+    background-color: rgb(77, 189, 151);
+    color: black;
+}
+.image {
+    grid-area: image;
+    background-color: rgb(193, 228, 230);
+    color: black;
+}
+.none {
+    grid-area: none;
+    display: none;
+}
